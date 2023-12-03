@@ -1,6 +1,10 @@
 # Note Taker App
 
-##
+## Application Resources
+
+[GitHub Page]()
+
+![Example Image/GIF of notes app]()
 
 ## Your Task
 
