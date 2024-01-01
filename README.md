@@ -10,6 +10,15 @@
 
 [GUID/UUID in Javascript](https://www.geeksforgeeks.org/how-to-create-a-guid-uuid-in-javascript/)
 
+### Challenges
+
+At first it wasn't showing the saved notes off to the side of the page, so I fixed some of the coding. Then I think I had a mistype somewhere because then the save button didn't show at the top anymore. I also had to fix some of my file references in the server.js file.
+
+Found this code online while trying to troubleshoot some errors: // Serve static files from the 'public' directory
+app.use(express.static('public')); which is in the server.js file. Before adding this, the errors I was getting was related to showing HTML instead of json data.
+
+Tried to write code for deleting a note, which is processed by the application but doesn't actually remove them from the fronend.
+
 ## Your Task
 
 Your assignment is to modify starter code to create an application called Note Taker that can be used to write and save notes. This application will use an Express.js back end and will save and retrieve note data from a JSON file.
