@@ -2,9 +2,9 @@
 
 ## Application Resources
 
-[GitHub Page]()
+[Repo Link](https://github.com/Jessmica11/note-taker)
 
-![Example Image/GIF of notes app]()
+![Example Image/GIF of notes app](./public/assets/note-taker-test.gif)
 
 ### Resources Used
 
@@ -18,6 +18,8 @@ Found this code online while trying to troubleshoot some errors: // Serve static
 app.use(express.static('public')); which is in the server.js file. Before adding this, the errors I was getting was related to showing HTML instead of json data.
 
 Tried to write code for deleting a note, which is processed by the application but doesn't actually remove them from the fronend.
+
+![Delete request in VS Code terminal](./public/assets/delete-request-received-terminal.png)
 
 ## Your Task
 
