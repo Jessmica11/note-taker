@@ -79,20 +79,30 @@ const handleNoteSave = () => {
 
 // Delete the clicked note
 const handleNoteDelete = (e) => {
-  // Prevents the click listener for the list from being called when the button inside of it is clicked
   e.stopPropagation();
 
   const note = e.target;
-  const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
+  const parentElement = note.parentElement;
 
-  if (activeNote.id === noteId) {
-    activeNote = {};
+  if (parentElement && parentElement.hasAttribute('data-note')) {
+    const noteId = JSON.parse(parentElement.getAttribute('data-note')).id;
+
+    if (!noteId) {
+      console.error('Invalid or missing ID in data-note attribute');
+      return;
+    }
+
+    if (activeNote.id === noteId) {
+      activeNote = {};
+    }
+
+    deleteNote(noteId).then(() => {
+      getAndRenderNotes();
+      renderActiveNote();
+    });
+  } else {
+    console.error('Invalid or missing data-note attribute');
   }
-
-  deleteNote(noteId).then(() => {
-    getAndRenderNotes();
-    renderActiveNote();
-  });
 };
 
 // Sets the activeNote and displays it

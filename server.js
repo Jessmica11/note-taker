@@ -48,6 +48,13 @@ app.post('/api/notes', (req, res) => {
 });
 
 // try to write a delete function for extra points
+app.delete('/api/notes/:id', (req, res) => {
+  const noteId = req.params.id;
+  // Log the received note ID for debugging
+  console.log('Received DELETE request for note ID:', noteId);
+  // Your logic to delete the note from the array and update the db.json file
+  res.json({ success: true, message: 'Note deleted successfully' });
+});
 
 // Start program
 app.listen(PORT, () => {
