@@ -10,6 +10,9 @@ const app = express();
 // Start program on PORT location
 const PORT = process.env.PORT || 3001;
 
+// middleware for json
+app.use(express.json());
+
 // GET request for HTTP
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'notes.html'));
