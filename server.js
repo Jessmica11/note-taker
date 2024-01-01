@@ -11,13 +11,13 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // GET request for HTTP
-app.get('./notes', (req, res) => {
+app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'notes.html'));
-})
+});
 
-app.get('*', (req,res) => {
-    res.sendStatus(path.join(__dirname, 'public', 'index.html'));
-})
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // Create location for "API"
 // POST req,res
