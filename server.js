@@ -13,11 +13,22 @@ const PORT = process.env.PORT || 3001;
 // middleware for json
 app.use(express.json());
 
+// Serve static files from the 'public' directory
+app.use(express.static('public'));
+
 // GET request for HTTP
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'notes.html'));
 });
 
+// Add this route to ensure GET requests to /api/notes return the correct JSON
+app.get('/api/notes', (req, res) => {
+    console.log('Request to /api/notes received');
+    const notes = JSON.parse(fs.readFileSync(path.join(__dirname, 'db', 'db.json'), 'utf8'));
+    res.json(notes);
+});
+
+// Redirect all other routes to the homepage
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
@@ -36,10 +47,7 @@ app.post('/api/notes', (req, res) => {
     res.json(newNote); // Return the new note to the client
 });
 
-// Redirect all other routes to the homepage
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+// try to write a delete function for extra points
 
 // Start program
 app.listen(PORT, () => {
